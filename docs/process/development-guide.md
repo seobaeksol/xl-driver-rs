@@ -74,6 +74,7 @@ Update docs when any of these change:
 - extension policy
 - verification expectations
 - repository workflow assumptions
+- dashboard-level project status or the next planned slice
 
 ## Quality Gates by Change Type
 
@@ -183,6 +184,7 @@ When changing implementation expectations:
 
 - update `docs/standards/engineering-principles.md` if the design philosophy or decision rules change
 - update `docs/standards/rust-coding-style.md` if coding patterns or API rules change
+- update `docs/progress.md` when the current project status, roadmap phase state, recent completed work, or next planned slice changed
 - update `docs/process/development-guide.md` if workflow or quality gates change
 - update `docs/process/branching-strategy.md` if branch or merge rules change
 - update `docs/process/task-tracking.md` if task tracking rules change

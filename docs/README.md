@@ -7,6 +7,7 @@ This directory uses a shallow, type-based structure.
 ```text
 docs/
   README.md
+  progress.md
   architecture/
   decisions/
   process/
@@ -15,6 +16,10 @@ docs/
 ```
 
 ## Directory Rules
+
+### `progress.md`
+
+Use this file as the single-page dashboard for current project status, completed slices, and the next planned work.
 
 ### `standards/`
 

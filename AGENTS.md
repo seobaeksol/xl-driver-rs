@@ -82,10 +82,20 @@ Do not claim verification that did not actually happen.
 
 Update docs when behavior or contributor expectations change.
 
+Keep `docs/progress.md` updated continuously.
+
+At minimum, update the dashboard whenever a meaningful slice changes:
+
+- the current project status
+- roadmap phase state
+- recent completed work
+- the next planned slice
+
 At minimum, consider whether these files need updates:
 
 - `README.md`
 - `docs/README.md`
+- `docs/progress.md`
 - `docs/standards/engineering-principles.md`
 - `docs/standards/rust-coding-style.md`
 - `docs/process/development-guide.md`
@@ -141,4 +151,5 @@ Before concluding work, verify:
 - verification was actually run where possible
 - any relevant ADRs were added or updated when a durable decision changed
 - linked review context, commit message, or task file referenced the work when applicable
+- `docs/progress.md` still reflects the current project state and next planned slice
 - documentation is still consistent with the codebase

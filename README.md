@@ -41,6 +41,8 @@ references/        vendor headers, DLLs, manuals, and samples
 
 Repository-level contributor rules live in [AGENTS.md](AGENTS.md).
 
+At-a-glance project status lives in [docs/progress.md](docs/progress.md).
+
 Active and completed work is tracked in Markdown under [docs/tasks/README.md](docs/tasks/README.md).
 
 Durable architecture or process decisions are recorded as lightweight ADRs under [docs/decisions/README.md](docs/decisions/README.md).
@@ -48,6 +50,7 @@ Durable architecture or process decisions are recorded as lightweight ADRs under
 The main project documents are:
 
 - [Documentation Overview](docs/README.md)
+- [Project Progress](docs/progress.md)
 - [Porting Plan](docs/architecture/porting-plan.md)
 - [Development Guide](docs/process/development-guide.md)
 - [Branching Strategy](docs/process/branching-strategy.md)
