@@ -12,3 +12,4 @@ pub use canfd::{CanFdConfig, CanFdQueueSize};
 pub use driver::Driver;
 pub use error::XlError;
 pub use port::Port;
+pub use xl_driver_sys::LibraryLocation;

@@ -10,6 +10,7 @@ The project does not reimplement the driver. It targets `vxlapi64.dll` through a
 - Windows x64 only
 - MVP scope only
 - current MVP: common lifecycle + CAN + CAN FD
+- current implementation: dynamic DLL loading plus driver open/close foundation; port and bus workflows are still in progress
 
 ## Requirements
 
