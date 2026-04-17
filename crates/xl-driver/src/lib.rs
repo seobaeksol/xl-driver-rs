@@ -7,7 +7,7 @@ pub mod driver;
 pub mod error;
 pub mod port;
 
-pub use can::{CanFrame, CanQueueSize};
+pub use can::{CanEvent, CanFrame, CanOutputMode, CanQueueSize};
 pub use canfd::{CanFdConfig, CanFdQueueSize};
 pub use driver::Driver;
 pub use error::XlError;

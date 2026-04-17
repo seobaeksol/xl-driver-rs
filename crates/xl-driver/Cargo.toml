@@ -7,3 +7,4 @@ description = "Safe Rust wrapper for Vector XL Driver"
 
 [dependencies]
 xl-driver-sys = { path = "../xl-driver-sys" }
+windows-sys = { version = "0.59", features = ["Win32_System_Threading"] }

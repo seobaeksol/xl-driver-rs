@@ -34,6 +34,7 @@ pub type XLhandle = HANDLE;
 pub type XLstringType = *mut c_char;
 
 pub const XL_SUCCESS: XLstatus = 0;
+pub const XL_ERR_QUEUE_IS_EMPTY: XLstatus = 10;
 
 pub const XL_BUS_TYPE_NONE: u32 = 0x0000_0000;
 pub const XL_BUS_TYPE_CAN: u32 = 0x0000_0001;
@@ -44,7 +45,9 @@ pub const XL_INTERFACE_VERSION_V4: u32 = 4;
 pub const XL_INTERFACE_VERSION: u32 = XL_INTERFACE_VERSION_V3;
 
 pub const XL_ACTIVATE_NONE: u32 = 0;
+pub const XL_ACTIVATE_RESET_CLOCK: u32 = 8;
 
+pub const XL_MAX_APPNAME: usize = 32;
 pub const XL_MAX_LENGTH: usize = 31;
 pub const XL_CONFIG_MAX_CHANNELS: usize = 64;
 

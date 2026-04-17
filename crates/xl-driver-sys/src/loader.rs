@@ -5,6 +5,7 @@ use std::path::{Path, PathBuf};
 
 use libloading::{Library, Symbol};
 
+use crate::can::XLevent;
 use crate::types::{XLaccess, XLdriverConfig, XLhandle, XLportHandle, XLstatus, XLstringType};
 
 pub const DEFAULT_XL_API_DLL: &str = "vxlapi64.dll";
@@ -129,8 +130,15 @@ pub type XLACTIVATECHANNEL =
 pub type XLDEACTIVATECHANNEL = unsafe extern "system" fn(XLportHandle, XLaccess) -> XLstatus;
 pub type XLCLOSEPORT = unsafe extern "system" fn(XLportHandle) -> XLstatus;
 pub type XLGETERRORSTRING = unsafe extern "system" fn(XLstatus) -> XLstringType;
+pub type XLGETEVENTSTRING = unsafe extern "system" fn(*mut XLevent) -> XLstringType;
+pub type XLCANSETCHANNELOUTPUT = unsafe extern "system" fn(XLportHandle, XLaccess, i32) -> XLstatus;
+pub type XLCANSETCHANNELBITRATE =
+    unsafe extern "system" fn(XLportHandle, XLaccess, u32) -> XLstatus;
+pub type XLCANTRANSMIT =
+    unsafe extern "system" fn(XLportHandle, XLaccess, *mut u32, *mut core::ffi::c_void) -> XLstatus;
+pub type XLRECEIVE = unsafe extern "system" fn(XLportHandle, *mut u32, *mut XLevent) -> XLstatus;
 
-/// Loaded XL API entrypoints for the Phase 1 lifecycle slice.
+/// Loaded XL API entrypoints for the lifecycle and classic CAN MVP slices.
 pub struct XlApi {
     _library: Library,
     pub xlOpenDriver: XLOPENDRIVER,
@@ -151,6 +159,11 @@ pub struct XlApi {
     pub xlDeactivateChannel: XLDEACTIVATECHANNEL,
     pub xlClosePort: XLCLOSEPORT,
     pub xlGetErrorString: XLGETERRORSTRING,
+    pub xlGetEventString: XLGETEVENTSTRING,
+    pub xlCanSetChannelOutput: XLCANSETCHANNELOUTPUT,
+    pub xlCanSetChannelBitrate: XLCANSETCHANNELBITRATE,
+    pub xlCanTransmit: XLCANTRANSMIT,
+    pub xlReceive: XLRECEIVE,
 }
 
 impl XlApi {
@@ -225,6 +238,27 @@ impl XlApi {
         let xlClosePort = unsafe { load_symbol(&library, &path, b"xlClosePort\0", "xlClosePort")? };
         let xlGetErrorString =
             unsafe { load_symbol(&library, &path, b"xlGetErrorString\0", "xlGetErrorString")? };
+        let xlGetEventString =
+            unsafe { load_symbol(&library, &path, b"xlGetEventString\0", "xlGetEventString")? };
+        let xlCanSetChannelOutput = unsafe {
+            load_symbol(
+                &library,
+                &path,
+                b"xlCanSetChannelOutput\0",
+                "xlCanSetChannelOutput",
+            )?
+        };
+        let xlCanSetChannelBitrate = unsafe {
+            load_symbol(
+                &library,
+                &path,
+                b"xlCanSetChannelBitrate\0",
+                "xlCanSetChannelBitrate",
+            )?
+        };
+        let xlCanTransmit =
+            unsafe { load_symbol(&library, &path, b"xlCanTransmit\0", "xlCanTransmit")? };
+        let xlReceive = unsafe { load_symbol(&library, &path, b"xlReceive\0", "xlReceive")? };
 
         Ok(Self {
             _library: library,
@@ -246,6 +280,11 @@ impl XlApi {
             xlDeactivateChannel,
             xlClosePort,
             xlGetErrorString,
+            xlGetEventString,
+            xlCanSetChannelOutput,
+            xlCanSetChannelBitrate,
+            xlCanTransmit,
+            xlReceive,
         })
     }
 
@@ -266,6 +305,29 @@ impl XlApi {
 
         let error = unsafe {
             // SAFETY: `xlGetErrorString` returns a null-terminated string owned
+            // by the XL API for the lifetime of the loaded library. We copy it
+            // into an owned `String` before returning.
+            CStr::from_ptr(error_ptr)
+        };
+
+        error.to_string_lossy().into_owned()
+    }
+
+    pub fn event_string(&self, event: &XLevent) -> String {
+        let event_ptr = event as *const XLevent as *mut XLevent;
+        let error_ptr = unsafe {
+            // SAFETY: The function pointer was resolved from the loaded XL API
+            // DLL with the exact signature declared in `vxlapi.h`. The driver
+            // only reads the event to format a message string.
+            (self.xlGetEventString)(event_ptr)
+        };
+
+        if error_ptr.is_null() {
+            return format!("XL event tag {}", event.tag);
+        }
+
+        let error = unsafe {
+            // SAFETY: `xlGetEventString` returns a null-terminated string owned
             // by the XL API for the lifetime of the loaded library. We copy it
             // into an owned `String` before returning.
             CStr::from_ptr(error_ptr)
