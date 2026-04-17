@@ -10,7 +10,7 @@ The project does not reimplement the driver. It targets `vxlapi64.dll` through a
 - Windows x64 only
 - MVP scope only
 - current MVP: common lifecycle + CAN + CAN FD
-- current implementation: dynamic DLL loading plus an initial classic CAN port workflow; hardware-backed CAN validation is still pending
+- current implementation: dynamic DLL loading plus a validated classic CAN workflow; CAN FD is still pending
 
 ## Requirements
 
@@ -27,13 +27,14 @@ The repository includes local reference materials under `references/xl-driver`, 
 crates/
   xl-driver-sys/   raw ABI mappings, DLL loading, raw calls
   xl-driver/       safe wrapper APIs and resource management
+    examples/      runnable `xl-driver` examples
 docs/
   architecture/    project direction and implementation plan
   decisions/       lightweight ADRs for durable technical decisions
   process/         workflow, tracking, and release process
   standards/       engineering and Rust coding rules
   tasks/           markdown task records and execution history
-examples/          runnable examples once public APIs exist
+examples/          repository-level example notes
 references/        vendor headers, DLLs, manuals, and samples
 ```
 

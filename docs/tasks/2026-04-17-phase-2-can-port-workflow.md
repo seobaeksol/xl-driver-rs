@@ -25,4 +25,4 @@
 - Added `Driver::open_can_port(...)` and a safe `Port` workflow for classic CAN port ownership, bitrate setup, activation/deactivation, notification setup, queue inspection, classic CAN transmit, and basic event receive.
 - Added unit and layout tests for the new access-mask logic, classic CAN event conversion, queue sizing, and classic CAN raw layouts.
 - Confirmed that the expanded loader still resolves successfully and opens/closes the XL driver when an explicit DLL path is provided.
-- Hardware-backed CAN transmit/receive verification did not run in this slice, so Phase 2 remains in progress at the project level even though this implementation slice is complete.
+- This implementation slice initially left Phase 2 in progress; the follow-up runtime validation that closed Phase 2 is recorded in `docs/tasks/2026-04-17-phase-2-can-validation.md`.

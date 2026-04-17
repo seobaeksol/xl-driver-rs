@@ -16,7 +16,7 @@ The recommended approach is as follows:
 - Limit the MVP scope to `Windows x64 + CAN + CAN FD`.
 - Use **dynamic loading** as the default loading model, not static linking.
 - Separate raw FFI from the ergonomic public API.
-- Exclude Ethernet from the MVP, and prefer the **network-based API** when Ethernet support is added later.
+- Exclude Ethernet from the MVP, and make **network-based Ethernet** the first explicit post-MVP expansion phase.
 
 In other words, this should not be treated as a project to translate the entire XL API into Rust at once. It should be treated as a project to **first deliver a production-usable Rust wrapper centered on CAN and CAN FD, and then expand bus-by-bus later**.
 
@@ -210,16 +210,16 @@ Reasons to defer expansion:
 
 After the MVP, the default recommended order is:
 
-1. LIN
-2. Ethernet network-based
+1. Ethernet network-based
+2. LIN
 3. basic TimeSync features
 4. FlexRay
 5. DAIO / A429 / MOST-family buses
 
 This order is recommended for the following reasons:
 
-- LIN reuses much of the common lifecycle while having clear bus-specific constraints, which makes it good for strengthening the wrapper design.
-- Ethernet may be valuable, but it should prefer the network-based API over the channel-based API, so it needs an additional design pass.
+- Ethernet is the preferred first post-MVP slice, but it should use the network-based API rather than the channel-based API, so it needs a dedicated design and verification pass.
+- LIN still reuses much of the common lifecycle while having clear bus-specific constraints, which makes it a strong follow-up after Ethernet.
 - FlexRay, MOST, and A429 have much broader and more complex APIs and event models, so they are heavy targets immediately after the MVP.
 
 ## 6. Implementation Strategy
@@ -461,15 +461,29 @@ Completion criteria:
 
 - CAN FD send/receive works
 
-### Phase 4. Expansion
+### Phase 4. Ethernet network-based
+
+Tasks:
+
+- identify the minimum usable Ethernet slice through the XL network-based API
+- add the required raw types, constants, and loader symbols
+- design a safe wrapper around the chosen network-oriented resource model
+- verify the first usable runtime path with real hardware or a credible network-based validation setup
+
+Completion criteria:
+
+- network-based Ethernet open/configure/basic runtime behavior works in a credible validation environment
+
+### Phase 5. Expansion
 
 Priority:
 
 1. LIN
-2. Ethernet network-based
-3. other buses
+2. basic TimeSync features
+3. FlexRay
+4. DAIO / A429 / MOST-family buses
 
-Phase 4 is not automatic. Only choose the next bus when the following conditions are met:
+Phase 5 is not automatic. Only choose the next bus when the following conditions are met:
 
 - there is a clear real need
 - hardware or a validation environment is available

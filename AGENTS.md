@@ -124,13 +124,14 @@ Avoid broad speculative scaffolding for APIs that are not yet being delivered.
 
 After MVP, expand selectively, not automatically.
 
-Default candidate order:
+The first post-MVP expansion phase is Ethernet via the network-based API.
+
+After that, default candidate order:
 
 1. LIN
-2. Ethernet via network-based API
-3. TimeSync basics
-4. FlexRay
-5. DAIO / A429 / MOST-family buses
+2. TimeSync basics
+3. FlexRay
+4. DAIO / A429 / MOST-family buses
 
 Only expand when:
 

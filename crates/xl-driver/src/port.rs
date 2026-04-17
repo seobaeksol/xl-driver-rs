@@ -10,7 +10,7 @@ use windows_sys::Win32::System::Threading::WaitForSingleObject;
 use xl_driver_sys::can::XLevent;
 use xl_driver_sys::{
     XL_ACTIVATE_RESET_CLOCK, XL_BUS_TYPE_CAN, XL_ERR_QUEUE_IS_EMPTY, XL_INTERFACE_VERSION,
-    XL_INVALID_PORTHANDLE, XLhandle, XLportHandle,
+    XL_INVALID_PORTHANDLE, XL_USE_ALL_CHANNELS, XLhandle, XLportHandle,
 };
 
 use crate::can::{
@@ -40,7 +40,7 @@ impl Port {
             return Err(XlError::new(None, "CAN bitrate must be greater than zero"));
         }
 
-        let access_mask = access_mask_from_channel_indices(channel_indices)?;
+        let access_mask = access_mask_from_channel_indices(&driver, channel_indices)?;
         let queue_size = queue_size_value(queue_size);
         if queue_size == 0 {
             return Err(XlError::new(
@@ -56,17 +56,48 @@ impl Port {
         let status = unsafe {
             // SAFETY: All pointers are valid for the duration of the call, and
             // the signature matches `vxlapi.h`.
-            (driver.api.xlOpenPort)(
+            (driver.api.xlCreatePort)(
                 &mut port_handle,
-                user_name.as_ptr().cast_mut(),
-                access_mask,
-                &mut permission_mask,
+                user_name.as_ptr(),
                 queue_size,
                 XL_INTERFACE_VERSION,
-                XL_BUS_TYPE_CAN,
+                XL_BUS_TYPE_CAN.into(),
             )
         };
         driver.status_result(status)?;
+
+        for &channel_index in channel_indices {
+            let mut init_permission = 0_u32;
+            let status = unsafe {
+                // SAFETY: The port handle is valid, and the channel index was
+                // validated against the current XL driver configuration.
+                (driver.api.xlAddChannelToPort)(
+                    port_handle,
+                    u64::from(channel_index),
+                    1,
+                    &mut init_permission,
+                    XL_BUS_TYPE_CAN.into(),
+                )
+            };
+            if let Err(error) = driver.status_result(status) {
+                close_raw_port(&driver, port_handle);
+                return Err(error);
+            }
+
+            if init_permission > 0 {
+                permission_mask |= access_mask_from_channel_indices(&driver, &[channel_index])?;
+            }
+        }
+
+        let status = unsafe {
+            // SAFETY: The port handle is valid and all requested channels were
+            // already added successfully.
+            (driver.api.xlFinalizePort)(port_handle)
+        };
+        if let Err(error) = driver.status_result(status) {
+            close_raw_port(&driver, port_handle);
+            return Err(error);
+        }
 
         if permission_mask & access_mask != access_mask {
             close_raw_port(&driver, port_handle);
@@ -105,7 +136,7 @@ impl Port {
             // SAFETY: The port handle is valid while `self` is alive.
             (self.driver.api.xlActivateChannel)(
                 self.handle,
-                self.access_mask,
+                XL_USE_ALL_CHANNELS,
                 XL_BUS_TYPE_CAN,
                 XL_ACTIVATE_RESET_CLOCK,
             )
@@ -117,7 +148,7 @@ impl Port {
     pub fn deactivate(&self) -> Result<(), XlError> {
         let status = unsafe {
             // SAFETY: The port handle is valid while `self` is alive.
-            (self.driver.api.xlDeactivateChannel)(self.handle, self.access_mask)
+            (self.driver.api.xlDeactivateChannel)(self.handle, XL_USE_ALL_CHANNELS)
         };
         self.driver.status_result(status)
     }
@@ -137,7 +168,7 @@ impl Port {
         let status = unsafe {
             // SAFETY: The port handle is valid while `self` is alive, and the
             // access mask refers only to channels opened on this port.
-            (self.driver.api.xlCanSetChannelBitrate)(self.handle, self.access_mask, bitrate)
+            (self.driver.api.xlCanSetChannelBitrate)(self.handle, XL_USE_ALL_CHANNELS, bitrate)
         };
         self.driver.status_result(status)
     }
@@ -149,7 +180,7 @@ impl Port {
             // access mask refers only to channels opened on this port.
             (self.driver.api.xlCanSetChannelOutput)(
                 self.handle,
-                self.access_mask,
+                XL_USE_ALL_CHANNELS,
                 output_mode.into(),
             )
         };
@@ -221,7 +252,7 @@ impl Port {
             // to writable stack storage, and the call signature matches `vxlapi.h`.
             (self.driver.api.xlCanTransmit)(
                 self.handle,
-                self.access_mask,
+                XL_USE_ALL_CHANNELS,
                 &mut event_count,
                 (&mut event as *mut XLevent).cast(),
             )
@@ -309,8 +340,9 @@ fn close_raw_port(driver: &DriverInner, handle: XLportHandle) {
     }
 
     let _ = unsafe {
-        // SAFETY: The handle was previously returned by `xlOpenPort`, and this
-        // function is only used to pair a best-effort close with that open call.
+        // SAFETY: The handle was previously returned by `xlOpenPort` or
+        // `xlCreatePort`, and this function is only used to pair a best-effort
+        // close with that open call.
         (driver.api.xlClosePort)(handle)
     };
 }

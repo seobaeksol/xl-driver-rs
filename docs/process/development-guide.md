@@ -166,13 +166,14 @@ Expansion should usually be rejected or deferred when:
 
 ## Suggested Expansion Order
 
-If expansion is approved, the default order is:
+If expansion is approved, the first post-MVP phase is Ethernet using the network-based API.
+
+After that, the default order is:
 
 1. LIN
-2. Ethernet using the network-based API
-3. TimeSync basics
-4. FlexRay
-5. DAIO, A429, MOST-family buses
+2. TimeSync basics
+3. FlexRay
+4. DAIO, A429, MOST-family buses
 
 This order is a default priority, not a promise.
 
