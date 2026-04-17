@@ -1,0 +1,6 @@
+[package]
+name = "xl-driver-sys"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Raw FFI bindings and loader primitives for Vector XL Driver"

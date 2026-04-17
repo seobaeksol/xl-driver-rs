@@ -1,0 +1,302 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\xlMOST150View.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
+    "#include ""afxres.rc""         // Standardkomponenten\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\xlMOST150View.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#define _STR_(N)    #N
+#define STR(N)     _STR_(N)
+#define VERSIONTEXT xlMOST150View Version 
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 250, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info über xlMOST150View"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           STR(VERSIONTEXT TOOLVERSION),IDC_STATIC,40,10,160,8,SS_NOPREFIX
+    LTEXT           STR(COPYRIGHT),IDC_STATIC,40,25,160,8
+    DEFPUSHBUTTON   "OK",IDOK,200,6,50,16,WS_GROUP
+END
+
+IDD_XLMOST150VIEW_DIALOG DIALOGEX 0, 0, 397, 302
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "xlMOST150View"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Exit",IDOK,340,281,50,14
+    LISTBOX         IDC_LIST1,15,146,360,130,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Activate",IDC_ACTIVATE,198,17,50,14
+    PUSHBUTTON      "Deactivate",IDC_DEACTIVATE,252,17,50,14,WS_DISABLED
+    PUSHBUTTON      "Startup",IDC_STARTUP,198,55,50,14,WS_DISABLED
+    LISTBOX         IDC_DEVICE,14,18,170,50,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Send",IDC_TX_CTRL,15,105,50,14,WS_DISABLED
+    PUSHBUTTON      "Clear Window",IDC_CLEAR,231,281,50,14
+    PUSHBUTTON      "Get Info",IDC_GET_INFO,306,36,50,14,WS_DISABLED
+    PUSHBUTTON      "Node Config",IDC_NODE_CONFIG,198,36,50,14,WS_DISABLED
+    GROUPBOX        "Available Hardware",IDC_STATIC,7,7,185,69
+    PUSHBUTTON      "General Test",IDC_GEN_TEST,252,36,50,14,WS_DISABLED
+    PUSHBUTTON      "Twinkle Power LED",IDC_TWINKLE,306,17,70,14,WS_DISABLED
+    PUSHBUTTON      "About",IDC_ABOUT,287,281,50,14
+    EDITTEXT        IDC_CTRL_TARGET_ADDR,90,105,70,15,ES_AUTOHSCROLL
+    GROUPBOX        "Output",IDC_STATIC,7,135,378,145
+    LTEXT           "Destination Address:",IDC_STATIC,90,90,68,8
+    GROUPBOX        "Control Tx Message",IDC_STATIC,7,80,185,50
+    EDITTEXT        IDC_ASYNC_TARGET_ADDR,290,105,70,15,ES_AUTOHSCROLL
+    GROUPBOX        "Data Tx Packet",IDC_STATIC,200,80,185,50
+    PUSHBUTTON      "Send",IDC_SEND_ASYNC_TX,210,105,50,14,WS_DISABLED
+    LTEXT           "Destination Address:",IDC_STATIC,290,90,68,8
+    PUSHBUTTON      "Shutdown",IDC_SHUTDOWN,252,55,50,14,WS_DISABLED
+    PUSHBUTTON      "Start Stream",IDC_STREAMING,306,55,50,14,WS_DISABLED
+END
+
+IDD_NODE_CONFIG DIALOGEX 300, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Node Configuration"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,128,73,50,14
+    PUSHBUTTON      "Set Parameter",IDC_SET_PARAMETER,67,73,58,14
+    CONTROL         "Slave",IDC_DEVICE_MODE_SLAVE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,29,33,10
+    GROUPBOX        "Node Parameter",IDC_NODE_CONFIG_GRP,7,6,171,61
+    CONTROL         "Master",IDC_DEVICE_MODE_MASTER,"Button",BS_AUTORADIOBUTTON,14,17,38,10
+    EDITTEXT        IDC_NODE_ADR,120,16,52,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GROUP_ADR,120,31,52,14,ES_AUTOHSCROLL
+    LTEXT           "Node Address:",IDC_STATIC,60,18,48,8
+    LTEXT           "Group Address:",IDC_STATIC,60,33,51,8
+    COMBOBOX        IDC_FREQUENCY,119,47,53,30,CBS_DROPDOWNLIST | CBS_AUTOHSCROLL | CBS_SORT | CBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP,WS_EX_TRANSPARENT
+    LTEXT           "Node Frequency:",IDC_STATIC,60,49,56,8
+END
+
+IDD_GEN_TEST DIALOGEX 300, 0, 131, 79
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "General Test Functions"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,74,58,50,14
+    PUSHBUTTON      "Light Error",IDC_GEN_LIGHT,68,19,50,14
+    PUSHBUTTON      "Lock Error",IDC_GEN_LOCK,68,33,50,14
+    EDITTEXT        IDC_EDIT1,44,19,20,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,44,33,20,14,ES_AUTOHSCROLL
+    LTEXT           "Repeat:",IDC_STATIC,14,21,27,9
+    LTEXT           "Repeat:",IDC_STATIC,14,34,27,8
+    GROUPBOX        "Generate Error",IDC_STATIC,7,7,117,46
+END
+
+IDD_STREAM_CONFIG DIALOGEX 300, 0, 177, 131
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Connection Labels"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,55,106,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,111,106,50,14
+    LISTBOX         IDC_CL_LIST,17,15,142,78,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ PRODUCTVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704e4"
+        BEGIN
+            VALUE "CompanyName", "Vector Informatik GmbH"
+            VALUE "FileDescription", "xlMOST150View"
+            VALUE "FileVersion", STR(TOOLVERSION)
+            VALUE "InternalName", "xlMOST150View.exe"
+            VALUE "LegalCopyright", STR(COPYRIGHT)
+            VALUE "OriginalFilename", "xlMOST150View.exe"
+            VALUE "ProductName", "xlMOST150View Example"
+            VALUE "ProductVersion", STR(TOOLVERSION)
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_XLMOST150VIEW_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 390
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    IDD_NODE_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 178
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_GEN_TEST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_STREAM_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 170
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_NODE_CONFIG DLGINIT
+BEGIN
+    IDC_FREQUENCY, 0x403, 8, 0
+0x3434, 0x312c, 0x486b, 0x007a, 
+    IDC_FREQUENCY, 0x403, 6, 0
+0x3834, 0x486b, 0x007a, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&Info über xlMOST150View..."
+END
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE 7, 1
+#pragma code_page(1252)
+#include "res\xlMOST150View.rc2"  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen
+#include "afxres.rc"         // Standardkomponenten
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,286 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\xlA429control.rc2""    // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.deu\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\xlA429control.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#define _STR_(N)    #N
+#define STR(N)     _STR_(N)
+#define VERSIONTEXT xlA429control Version 
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 250, 70
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About xlA429control..."
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           STR(VERSIONTEXT TOOLVERSION),IDC_STATIC,75,7,160,8,SS_NOPREFIX
+    LTEXT           STR(COPYRIGHT),IDC_STATIC,75,17,160,8
+    DEFPUSHBUTTON   "OK",IDOK,120,35,50,14,WS_GROUP
+    CONTROL         IDB_XL,IDC_STATIC,"Static",SS_BITMAP,20,10,32,30
+END
+
+IDD_XLA429CONTROL_DIALOG DIALOGEX 0, 0, 372, 276
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "xlA429control"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,315,255,50,14
+    LISTBOX         IDC_OUTPUT,7,127,358,112,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Send",IDC_SEND,315,71,50,20,WS_DISABLED,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_TX_PARITY,112,21,60,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Go OnBus",IDC_ONBUS,315,9,50,14,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Go OffBus",IDC_OFFBUS,315,26,50,14,WS_DISABLED,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_DATA,256,99,43,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LABEL,216,99,35,14,ES_AUTOHSCROLL
+    LTEXT           "label",IDC_STATIC,216,89,16,8
+    LTEXT           "data",IDC_STATIC,256,89,15,8
+    GROUPBOX        "Message",IDC_STATIC,6,73,299,47
+    LISTBOX         IDC_HARDWARE,12,15,84,53,LBS_SORT | LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_TABSTOP
+    GROUPBOX        "Hardware",IDC_STATIC,6,3,95,70
+    PUSHBUTTON      "Clear",IDC_CLEAR,315,95,50,20,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "About",IDC_ABOUT,259,255,50,14
+    PUSHBUTTON      "License Info",IDC_LIC_INFO,7,255,50,14
+    GROUPBOX        "Tx Parameter Settings",IDC_STATIC,105,3,200,35
+    GROUPBOX        "Rx Parameter Settings",IDC_STATIC,105,38,200,35
+    LTEXT           "parity",IDC_STATIC,112,11,18,8
+    EDITTEXT        IDC_TX_MINGAP,179,21,20,14,ES_AUTOHSCROLL
+    LTEXT           "minGap",IDC_STATIC,179,11,25,8
+    EDITTEXT        IDC_TX_BITRATE,206,21,52,14,ES_AUTOHSCROLL
+    LTEXT           "bitrate",IDC_STATIC,206,11,20,8
+    COMBOBOX        IDC_RX_PARITY,111,56,60,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,WS_EX_TRANSPARENT
+    LTEXT           "parity",IDC_STATIC,111,46,18,8
+    LTEXT           "minGap",IDC_STATIC,177,46,25,8
+    EDITTEXT        IDC_RX_MINGAP,177,56,20,14,ES_AUTOHSCROLL
+    CONTROL         "ENABLED",IDC_RX_AUTOBAUDRATE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,203,56,45,10
+    LTEXT           "autoBaudrate",IDC_STATIC,203,46,44,8
+    EDITTEXT        IDC_RX_BITRATE,254,56,48,14,ES_AUTOHSCROLL
+    LTEXT           "bitrate",IDC_STATIC,254,46,20,8
+    LTEXT           "flags",IDC_STATIC,12,89,16,8
+    EDITTEXT        IDC_MSG_CYCLE_TIME,69,99,52,14,ES_AUTOHSCROLL
+    LTEXT           "cycleTime",IDC_STATIC,69,89,33,8
+    COMBOBOX        IDC_MSG_FLAGS,12,99,52,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_MSG_PARITY,126,99,60,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,WS_EX_TRANSPARENT
+    LTEXT           "parity",IDC_STATIC,126,89,18,8
+    EDITTEXT        IDC_MSG_GAP,191,99,20,14,ES_AUTOHSCROLL
+    LTEXT           "gap",IDC_STATIC,191,89,13,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ PRODUCTVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "FileDescription", "MFC-Anwendung xlA429control"
+            VALUE "FileVersion", STR(TOOLVERSION)
+            VALUE "InternalName", "xlA429control"
+            VALUE "LegalCopyright", STR(COPYRIGHT)
+            VALUE "OriginalFilename", "xlA429control.EXE"
+            VALUE "ProductName", "Anwendung xlA429control"
+            VALUE "ProductVersion", STR(TOOLVERSION)
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_XLA429CONTROL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 365
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 269
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_XLA429CONTROL_DIALOG DLGINIT
+BEGIN
+    IDC_TX_PARITY, 0x403, 8, 0
+0x4544, 0x4146, 0x4c55, 0x0054, 
+    IDC_TX_PARITY, 0x403, 9, 0
+0x4944, 0x4153, 0x4c42, 0x4445, "\000" 
+    IDC_TX_PARITY, 0x403, 4, 0
+0x444f, 0x0044, 
+    IDC_TX_PARITY, 0x403, 5, 0
+0x5645, 0x4e45, "\000" 
+    IDC_RX_PARITY, 0x403, 8, 0
+0x4544, 0x4146, 0x4c55, 0x0054, 
+    IDC_RX_PARITY, 0x403, 9, 0
+0x4944, 0x4153, 0x4c42, 0x4445, "\000" 
+    IDC_RX_PARITY, 0x403, 4, 0
+0x444f, 0x0044, 
+    IDC_RX_PARITY, 0x403, 5, 0
+0x5645, 0x4e45, "\000" 
+    IDC_MSG_FLAGS, 0x403, 8, 0
+0x4552, 0x5551, 0x5345, 0x0054, 
+    IDC_MSG_FLAGS, 0x403, 7, 0
+0x5943, 0x4c43, 0x4349, "\000" 
+    IDC_MSG_FLAGS, 0x403, 7, 0
+0x4544, 0x454c, 0x4554, "\000" 
+    IDC_MSG_PARITY, 0x403, 8, 0
+0x4544, 0x4146, 0x4c55, 0x0054, 
+    IDC_MSG_PARITY, 0x403, 9, 0
+0x4944, 0x4153, 0x4c42, 0x4445, "\000" 
+    IDC_MSG_PARITY, 0x403, 4, 0
+0x444f, 0x0044, 
+    IDC_MSG_PARITY, 0x403, 5, 0
+0x5645, 0x4e45, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_XL                  BITMAP                  "res\\XL.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "Inf&o über xlA429control..."
+END
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE 7, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\xlA429control.rc2"    // non-Microsoft Visual C++ edited resources
+#include "l.deu\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

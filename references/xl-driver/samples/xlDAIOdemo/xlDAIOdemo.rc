@@ -1,0 +1,259 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\xlDAIOdemo.ico"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\xlDAIOdemo.rc2""  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen\r\n"
+    "#include ""afxres.rc""         // Standardkomponenten\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_XLDAIODEMO_DIALOG DIALOGEX 0, 0, 339, 318
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "xlDAIOdemo"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,285,244,50,14
+    GROUPBOX        "Channel",IDC_STATIC,4,4,147,72
+    PUSHBUTTON      "&Start",IDC_BUTTON1,95,58,50,14
+    PUSHBUTTON      "S&top",IDC_BUTTON2,41,58,50,14
+    GROUPBOX        "Configuration",IDC_STATIC,155,4,179,72
+    GROUPBOX        "Analog I/O",IDC_STATIC,4,89,147,104
+    GROUPBOX        "Digital I/O",IDC_STATIC,155,89,180,104
+    GROUPBOX        "PWM Output",IDC_STATIC,4,197,147,60
+    LISTBOX         IDC_LIST1,257,99,72,89,LBS_SORT | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Output 1",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,192,147,43,10,WS_EX_RIGHT
+    CONTROL         "Output 2",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,192,158,43,10,WS_EX_RIGHT
+    CONTROL         "Output 3",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,192,169,43,10,WS_EX_RIGHT
+    CONTROL         "Output 4",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,192,180,43,10,WS_EX_RIGHT
+    LTEXT           "Direct Output setting:",IDC_STATIC,167,136,68,8
+    EDITTEXT        IDC_EDIT1,79,132,50,12,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "mV",IDC_STATIC,131,134,11,8
+    EDITTEXT        IDC_EDIT2,79,148,50,12,ES_RIGHT | ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "mV",IDC_STATIC,131,150,11,8
+    EDITTEXT        IDC_EDIT3,79,162,50,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    LTEXT           "mV",IDC_STATIC,131,164,11,8
+    LTEXT           "Input status:",IDC_STATIC,214,98,40,8
+    EDITTEXT        IDC_EDIT4,79,177,50,12,ES_RIGHT | ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    LTEXT           "mV",IDC_STATIC,131,180,11,8
+    LTEXT           "Output 1 (Analog 1)",IDC_STATIC,15,134,62,8
+    LTEXT           "Output 2 (Analog 2)",IDC_STATIC,15,150,62,8
+    LTEXT           "Input1 (Analog 3)",IDC_STATIC,15,164,55,8
+    LTEXT           "Input2 (Analog 4)",IDC_STATIC,15,180,55,8
+    PUSHBUTTON      "Set Analog Outputs",IDC_BUTTON3,67,103,75,14
+    PUSHBUTTON      "Measure Now",IDC_BUTTON4,156,201,58,14
+    COMBOBOX        IDC_COMBO1,160,59,71,71,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_RIGHT
+    LTEXT           "Measurement frequency:",IDC_STATIC,160,49,79,8
+    PUSHBUTTON      "Set Configuration",IDC_BUTTON5,262,15,68,14
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_AUTOTICKS | TBS_BOTH | WS_TABSTOP,24,228,106,25
+    LTEXT           "100%",IDC_STATIC,129,237,18,8
+    LTEXT           "0%",IDC_STATIC,14,237,10,8
+    COMBOBOX        IDC_COMBO2,82,212,65,70,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,WS_EX_RIGHT
+    LTEXT           "Frequency:",IDC_STATIC,42,213,36,8
+    LISTBOX         IDC_LIST2,4,262,331,52,LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "No channel activated",IDC_SELECTEDCHANNELNAME,11,15,133,24
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#define _STR_(N)    #N
+#define STR(N)     _STR_(N)
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ PRODUCTVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "xlDAIOdemo Vector XL Driver Library demo"
+            VALUE "FileVersion", STR(TOOLVERSION)
+            VALUE "InternalName", "xlDAIOdemo"
+            VALUE "LegalCopyright", STR(COPYRIGHT)
+            VALUE "OriginalFilename", "xlDAIOdemo.exe"
+            VALUE "ProductName", "xlDAIOdemo Tool"
+            VALUE "ProductVersion", STR(TOOLVERSION)
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_XLDAIODEMO_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 335
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 314
+        HORZGUIDE, 72
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_XLDAIODEMO_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 7, 0
+0x614d, 0x756e, 0x6c61, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0x2031, 0x7a48, "\000" 
+    IDC_COMBO1, 0x403, 6, 0
+0x3031, 0x4820, 0x007a, 
+    IDC_COMBO1, 0x403, 7, 0
+0x3031, 0x2030, 0x7a48, "\000" 
+    IDC_COMBO1, 0x403, 8, 0
+0x3031, 0x3030, 0x4820, 0x007a, 
+    IDC_COMBO2, 0x403, 9, 0
+0x6944, 0x6173, 0x6c62, 0x6465, "\000" 
+    IDC_COMBO2, 0x403, 7, 0
+0x3031, 0x2030, 0x7a48, "\000" 
+    IDC_COMBO2, 0x403, 8, 0
+0x3035, 0x3030, 0x4820, 0x007a, 
+    IDC_COMBO2, 0x403, 9, 0
+0x3032, 0x3030, 0x2030, 0x7a48, "\000" 
+    IDC_COMBO2, 0x403, 9, 0
+0x3034, 0x3030, 0x2030, 0x7a48, "\000" 
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\xlDAIOdemo.rc2"  // Nicht mit Microsoft Visual C++ bearbeitete Ressourcen
+#include "afxres.rc"         // Standardkomponenten
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

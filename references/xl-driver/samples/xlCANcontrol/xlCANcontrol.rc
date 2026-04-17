@@ -1,0 +1,270 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// German (Germany) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 7, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\xlCANcontrol.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.deu\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\xlCANcontrol.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+#define _STR_(N)    #N
+#define STR(N)     _STR_(N)
+#define VERSIONTEXT xlCANcontrol Version
+
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 250, 70
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About xlCANcontrol..."
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           STR(VERSIONTEXT TOOLVERSION),IDC_STATIC,75,7,160,8,SS_NOPREFIX
+    LTEXT           STR(COPYRIGHT),IDC_STATIC,75,17,160,8
+    DEFPUSHBUTTON   "OK",IDOK,120,35,50,14,WS_GROUP
+    CONTROL         IDB_XL,IDC_STATIC,"Static",SS_BITMAP,20,10,32,30
+END
+
+IDD_XLCANCONTROL_DIALOG DIALOGEX 0, 0, 287, 221
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "xlCANcontrol"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,230,200,50,14
+    LISTBOX         IDC_OUTPUT,5,110,275,85,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Send",IDC_SEND,225,85,50,20,WS_DISABLED,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_BAUDRATE,106,13,60,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Go OnBus",IDC_ONBUS,224,13,50,14,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Go OffBus",IDC_OFFBUS,171,13,50,14,WS_DISABLED,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_D07,254,60,20,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_D06,234,60,18,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_D00,114,60,18,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_D01,134,60,19,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_D02,154,60,18,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_D03,174,60,20,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_D04,194,60,17,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_D05,214,60,19,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DLC,89,60,15,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ID,10,60,35,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CHANNEL,161,89,60,70,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_DISABLED | WS_VSCROLL | WS_TABSTOP,WS_EX_TRANSPARENT
+    CONTROL         "Ext. ID",IDC_EXID,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,62,36,10
+    LTEXT           "ID",IDC_STATIC,10,50,8,8
+    LTEXT           "DLC",IDC_STATIC,89,50,15,8
+    LTEXT           "D0",IDC_STATIC,116,50,15,8
+    LTEXT           "D1",IDC_STATIC,136,50,15,8
+    LTEXT           "D2",IDC_STATIC,156,50,15,8
+    LTEXT           "D3",IDC_STATIC,176,50,15,8
+    LTEXT           "D4",IDC_STATIC,196,50,15,8
+    LTEXT           "D5",IDC_STATIC,216,50,15,8
+    LTEXT           "D6",IDC_STATIC,236,50,15,8
+    LTEXT           "D7",IDC_STATIC,256,50,15,8
+    GROUPBOX        "Message",IDC_STATIC,5,40,275,40
+    LISTBOX         IDC_HARDWARE,11,10,84,20,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_TABSTOP
+    GROUPBOX        "Hardware",IDC_STATIC,5,0,95,35
+    CONTROL         "",IDC_STATIC,"Static",SS_GRAYRECT,101,3,179,32
+    PUSHBUTTON      "Clear",IDC_CLEAR,8,99,23,9,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "About",IDC_ABOUT,175,200,50,14
+    PUSHBUTTON      "Reset filter",IDC_RESET,115,96,40,9,0,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_FILTERFROM,55,90,20,14,ES_AUTOHSCROLL,WS_EX_TRANSPARENT
+    EDITTEXT        IDC_FILTERTO,90,90,20,14,ES_AUTOHSCROLL,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Set filter",IDC_SETFILTER,115,87,40,9,0,WS_EX_TRANSPARENT
+    LTEXT           "ID:",IDC_STATIC,41,92,10,10,0,WS_EX_TRANSPARENT
+    LTEXT           "to",IDC_STATIC,80,92,8,10,0,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC,"Static",SS_GRAYRECT,5,80,275,30
+    PUSHBUTTON      "License Info",IDC_LIC_INFO,7,200,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ PRODUCTVERSION SAMPLES_VERSION_MAJOR , SAMPLES_VERSION_MINOR , SAMPLES_VERSION_BUILD , SAMPLES_VERSION_REVISION
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704b0"
+        BEGIN
+            VALUE "FileDescription", "MFC-Anwendung xlCANcontrol"
+            VALUE "FileVersion", STR(TOOLVERSION)
+            VALUE "InternalName", "xlCANcontrol"
+            VALUE "LegalCopyright", STR(COPYRIGHT)
+            VALUE "OriginalFilename", "xlCANcontrol.EXE"
+            VALUE "ProductName", "Anwendung xlCANcontrol"
+            VALUE "ProductVersion", STR(TOOLVERSION)
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x407, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 54
+    END
+
+    IDD_XLCANCONTROL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 214
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_XLCANCONTROL_DIALOG DLGINIT
+BEGIN
+    IDC_BAUDRATE, 0x403, 7, 0
+0x3333, 0x332e, 0x3333, "\000" 
+    IDC_BAUDRATE, 0x403, 8, 0
+0x3031, 0x2e30, 0x3030, 0x0030, 
+    IDC_BAUDRATE, 0x403, 8, 0
+0x3231, 0x2e35, 0x3030, 0x0030, 
+    IDC_BAUDRATE, 0x403, 8, 0
+0x3035, 0x2e30, 0x3030, 0x0030, 
+    IDC_BAUDRATE, 0x403, 10, 0
+0x2e31, 0x3030, 0x2e30, 0x3030, 0x0030, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_XL                  BITMAP                  "res\\XL.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "Inf&o über xlCANcontrol..."
+END
+
+#endif    // German (Germany) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
+#ifdef _WIN32
+LANGUAGE 7, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\xlCANcontrol.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.deu\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
